@@ -1,3 +1,4 @@
+##Program calculates the number of alphas, betas, gammas, deltas, and epsilons you have assigned based on your proteins sequence
 import re
 
 alphas_betas={'D':2,'T':2,'S':2,'E':2,'P':2,'G':1,'A':2,'C':2,'V':2,'M':2,'I':2,'L':2,'Y':2,'F':2,'H':2,'K':2,'R':2,'W':2,'Q':2,'N':2}
