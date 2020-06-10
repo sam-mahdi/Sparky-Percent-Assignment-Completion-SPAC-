@@ -47,18 +47,19 @@ epsilons_assigned=0
 with open(assignment_file) as file:
   for letter in file:
       A=letter.strip()
-      betas=re.sub('HB2','',A)
-      alphas=re.sub('HA2','',A)
-      gamma_carbons=re.sub('CG2','',A)
-      gamma_hydrogens=re.sub('HG2','',gamma_carbons)
+      print(A)
+      betas=re.sub('HB3','',A)
+      alphas=re.sub('HA3','',A)
+      gamma_carbons=re.sub('V\dCG2','',A)
+      gamma_hydrogens=re.sub('HG3','',gamma_carbons)
       delta_carbons=re.sub('CD2','',A)
-      delta_hydrogens=re.sub('HD2','',delta_carbons)
-      epsilon_hydrogens=re.sub('HE2','',A)
-      if re.findall(r'\BCE-HE',epsilon_hydrogens):
+      delta_hydrogens=re.sub('HD3','',delta_carbons)
+      epsilon_hydrogens=re.sub('HE3','',A)
+      if re.findall(r'\BCE-HE2',epsilon_hydrogens):
         epsilons_assigned+=1
-      if re.findall(r'\BCD-HD', delta_hydrogens):
+      if re.findall(r'\BCD[0-9]*-HD[0-9]*', delta_hydrogens):
           deltas_assigned+=1
-      if re.findall(r'\BCG-HG', gamma_hydrogens):
+      if re.findall(r'\BCG[0-9]*-HG[0-9]*', gamma_hydrogens):
           gammas_assigned+=1
       if re.findall(r'\BCB-HB', betas):
         betas_assigned+=1
